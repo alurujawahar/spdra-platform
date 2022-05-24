@@ -1,0 +1,49 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: anchorpeer-allchannel-manufacturer
+  namespace: manufacturer-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  releaseName: anchorpeer-allchannel-manufacturer
+  chart:
+    git: https://github.com/alurujawahar/spdra-platform.git
+    ref: develop
+    path: platforms/hyperledger-fabric/charts/anchorpeer
+  values:
+    metadata:
+      namespace: manufacturer-net
+      images:
+        fabrictools: hyperledger/fabric-tools:2.2.2
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+
+    peer:
+      name: peer0
+      address: peer0.manufacturer-net.org2ambassador.a.getthespiderman.com:8443
+      localmspid: manufacturerMSP
+      loglevel: debug
+      tlsstatus: true
+
+    vault:
+      role: vault-role
+      address: http://100.21.17.156:9696
+      authpath: devmanufacturer-net-auth
+      adminsecretprefix: secret/data/crypto/peerOrganizations/manufacturer-net/users/admin
+      orderersecretprefix: secret/data/crypto/peerOrganizations/manufacturer-net/orderer
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+
+    channel:
+      name: allchannel      
+    orderer:
+      address: orderer1.org1ambassador.a.getthespiderman.com:8443
+    anchorstx: |-
+      CuwCChgKFggCGgYI+KezlAYiCmFsbGNoYW5uZWwSzwIKzAIKCmFsbGNoYW5uZWwSaBJmCgtBcHBs
+      aWNhdGlvbhJXCAESUwoPbWFudWZhY3R1cmVyTVNQEkAaBwoDTVNQEgAiDwoLRW5kb3JzZW1lbnQS
+      ACILCgdSZWFkZXJzEgAiCwoHV3JpdGVycxIAIgoKBkFkbWlucxIAGtMBEtABCgtBcHBsaWNhdGlv
+      bhLAAQgBErsBCg9tYW51ZmFjdHVyZXJNU1ASpwEIARpbCgtBbmNob3JQZWVycxJMEkIKQAo7cGVl
+      cjAubWFudWZhY3R1cmVyLW5ldC5vcmcyYW1iYXNzYWRvci5hLmdldHRoZXNwaWRlcm1hbi5jb20Q
+      +0EaBkFkbWlucxoHCgNNU1ASACIKCgZBZG1pbnMSACIPCgtFbmRvcnNlbWVudBIAIgsKB1JlYWRl
+      cnMSACILCgdXcml0ZXJzEgAqBkFkbWlucw==
+

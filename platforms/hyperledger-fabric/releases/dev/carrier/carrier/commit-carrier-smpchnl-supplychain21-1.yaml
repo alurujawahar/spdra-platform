@@ -46,9 +46,7 @@ spec:
       name: smpchnl
     endorsers:
       creator: carrier-net
-      name:  carrier  manufacturer  carrier 
-      corepeeraddress:  peer0.carrier-net.org3ambassador.getthespiderman.com:8443  peer0.manufacturer-net.org2ambassador.getthespiderman.com:8443  peer0.carrier-net.org3ambassador.getthespiderman.com:8443 
+      name:  carrier 
+      corepeeraddress:  peer0.carrier-net.org3ambassador.getthespiderman.com:8443 
       nameslist: 
-        - name: carrier
-        - name: manufacturer
         - name: carrier

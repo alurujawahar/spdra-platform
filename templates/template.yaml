@@ -1,0 +1,7 @@
+---
+- name: Create parameters file
+  hosts: localhost
+  tasks: 
+    - template:
+       src: paramaters.j2
+       dest: parameter.yaml

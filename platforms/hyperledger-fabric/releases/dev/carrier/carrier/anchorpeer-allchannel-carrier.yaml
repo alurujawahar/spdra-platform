@@ -1,0 +1,49 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: anchorpeer-allchannel-carrier
+  namespace: carrier-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  releaseName: anchorpeer-allchannel-carrier
+  chart:
+    git: https://github.com/alurujawahar/spdra-platform.git
+    ref: develop
+    path: platforms/hyperledger-fabric/charts/anchorpeer
+  values:
+    metadata:
+      namespace: carrier-net
+      images:
+        fabrictools: hyperledger/fabric-tools:2.2.2
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+
+    peer:
+      name: peer0
+      address: peer0.carrier-net.org3ambassador.getthespiderman.com:8443
+      localmspid: carrierMSP
+      loglevel: debug
+      tlsstatus: true
+
+    vault:
+      role: vault-role
+      address: http://100.21.17.156:9696
+      authpath: devcarrier-net-auth
+      adminsecretprefix: secret/data/crypto/peerOrganizations/carrier-net/users/admin
+      orderersecretprefix: secret/data/crypto/peerOrganizations/carrier-net/orderer
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+
+    channel:
+      name: allchannel      
+    orderer:
+      address: orderer1.org1ambassador.getthespiderman.com:8443
+    anchorstx: |-
+      CtsCChgKFggCGgYI2LzylAYiCmFsbGNoYW5uZWwSvgIKuwIKCmFsbGNoYW5uZWwSYxJhCgtBcHBs
+      aWNhdGlvbhJSCAESTgoKY2Fycmllck1TUBJAGgcKA01TUBIAIgsKB1JlYWRlcnMSACILCgdXcml0
+      ZXJzEgAiCgoGQWRtaW5zEgAiDwoLRW5kb3JzZW1lbnQSABrHARLEAQoLQXBwbGljYXRpb24StAEI
+      ARKvAQoKY2Fycmllck1TUBKgAQgBGgcKA01TUBIAGlQKC0FuY2hvclBlZXJzEkUSOwo5CjRwZWVy
+      MC5jYXJyaWVyLW5ldC5vcmczYW1iYXNzYWRvci5nZXR0aGVzcGlkZXJtYW4uY29tEPtBGgZBZG1p
+      bnMiCwoHUmVhZGVycxIAIgsKB1dyaXRlcnMSACIKCgZBZG1pbnMSACIPCgtFbmRvcnNlbWVudBIA
+      KgZBZG1pbnM=
+

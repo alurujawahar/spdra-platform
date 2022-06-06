@@ -39,10 +39,10 @@ spec:
       address: orderer3.org1ambassador.getthespiderman.com:8443
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: fabcar3
+      name: fabcar4
       version: 1
       lang: golang
-      maindirectory: go
+      maindirectory: cmd
       repository:
         hostname: "github.com"
         git_username: "alurujawahar"

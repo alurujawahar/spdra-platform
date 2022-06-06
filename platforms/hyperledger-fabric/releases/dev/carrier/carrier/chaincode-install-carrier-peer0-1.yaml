@@ -39,7 +39,7 @@ spec:
       address: orderer3.org1ambassador.getthespiderman.com:8443
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: chaincode-go4
+      name: chaincode-go5
       version: 1
       lang: golang
       maindirectory: chaincode
@@ -48,5 +48,5 @@ spec:
         git_username: "alurujawahar"
         url: github.com/alurujawahar/spdra-platform.git
         branch: develop
-        path: examples/chaincode-go4/chaincode
+        path: examples/chaincode-go5/chaincode
       endorsementpolicies:  ''

@@ -39,7 +39,7 @@ spec:
       address: orderer3.org1ambassador.getthespiderman.com:8443
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: chaincode-go6
+      name: chaincode-go7
       version: 1
       lang: golang
       maindirectory: chaincode

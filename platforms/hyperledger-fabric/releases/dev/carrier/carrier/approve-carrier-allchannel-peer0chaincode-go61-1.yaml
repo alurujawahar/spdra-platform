@@ -39,7 +39,7 @@ spec:
       name: chaincode-go6
       version: 1
       sequence: 1
-      commitarguments: '\"init\",\"\"'
+      commitarguments: '\"InitLedger\",\"\"'
       endorsementpolicies:  ''
     channel:
       name: allchannel

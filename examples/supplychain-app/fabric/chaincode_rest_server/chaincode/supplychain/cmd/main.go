@@ -5,7 +5,7 @@ import (
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 
-	supplychain "github.com/chaincode/supplychain2"
+	supplychain "github.com/chaincode/supplychain"
 )
 
 // main function starts up the chaincode in the container during instantiate

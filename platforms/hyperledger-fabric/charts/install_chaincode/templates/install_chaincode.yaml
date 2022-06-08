@@ -290,7 +290,6 @@ spec:
             echo "Chaincode installed for Fabric v.2.X"
             #query installed
             echo "peer query installed"
-            tail -f /dev/null
             peer lifecycle chaincode queryinstalled
           fi
         env:

@@ -195,10 +195,10 @@ spec:
             # Get dependencies
             mkdir -p $GOPATH/bin && curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
        
-            cd $GOPATH/src/github.com/chaincode 
+            cd $GOPATH/src/github.com/chaincode/${CHAINCODE_NAME}/${CHAINCODE_MAINDIR}
             
-            #chaincode path
-            CC_SRC_PATH="github.com/chaincode/${CHAINCODE_NAME}/${CHAINCODE_MAINDIR}"
+            # #chaincode path
+            # CC_SRC_PATH="github.com/chaincode/${CHAINCODE_NAME}/${CHAINCODE_MAINDIR}"
 
             if ! [ -d "vendor" ];then
               GO111MODULE=on go mod vendor
@@ -290,6 +290,7 @@ spec:
             echo "Chaincode installed for Fabric v.2.X"
             #query installed
             echo "peer query installed"
+            tail -f /dev/null
             peer lifecycle chaincode queryinstalled
           fi
         env:

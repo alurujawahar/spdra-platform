@@ -1,21 +1,22 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: chaincode-install-carrier-peer0-1
+  name: invoke-carrier-allchannel-fabcar-go1
   namespace: carrier-net
   annotations:
     fluxcd.io/automated: "false"
 spec:
-  releaseName: chaincode-install-carrier-peer0-1
+  releaseName: invoke-carrier-allchannel-fabcar-go1
   chart:
     git: https://github.com/alurujawahar/spdra-platform.git
     ref: develop
-    path: platforms/hyperledger-fabric/charts/install_chaincode
+    path: platforms/hyperledger-fabric/charts/invoke_chaincode
   values:
     metadata:
       namespace: carrier-net
       network:
         version: 2.2.2
+      add_organization: false
       images:
         fabrictools: hyperledger/fabric-tools:2.2.2
         alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
@@ -29,24 +30,26 @@ spec:
       role: vault-role
       address: http://54.69.82.245:9696
       authpath: devcarrier-net-auth
+      secretpath: secret
       adminsecretprefix: secret/data/crypto/peerOrganizations/carrier-net/users/admin 
       orderersecretprefix: secret/data/crypto/peerOrganizations/carrier-net/orderer
-      secretgitprivatekey: secret/data/credentials/carrier-net/git
       serviceaccountname: vault-auth
       imagesecretname: regcred
       tls: false
     orderer:
-      address: orderer3.org1ambassador.getthespiderman.com:8443
+      address: orderer1.org1ambassador.getthespiderman.com:8443
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: chaincode
+      name: fabcar-go
       version: 1
-      lang: golang
-      maindirectory: spydra-chaincode
-      repository:
-        hostname: "github.com"
-        git_username: "alurujawahar"
-        url: github.com/alurujawahar/spdra-platform.git
-        branch: develop
-        path: examples
+      invokearguments: '\"InitLedger\",\"\"'
       endorsementpolicies:  ''
+    channel:
+      name: allchannel
+    endorsers:
+      creator: carrier-net
+      name:  carrier  manufacturer 
+      corepeeraddress:  peer0.carrier-net.org3ambassador.getthespiderman.com:8443  peer0.manufacturer-net.org2ambassador.getthespiderman.com:8443 
+      nameslist: 
+        - name: carrier
+        - name: manufacturer

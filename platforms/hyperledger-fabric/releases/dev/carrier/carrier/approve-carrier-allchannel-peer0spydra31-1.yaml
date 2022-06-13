@@ -1,12 +1,12 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: approve-carrier-allchannel-peer0chaincode1-1
+  name: approve-carrier-allchannel-peer0spydra31-1
   namespace: carrier-net
   annotations:
     fluxcd.io/automated: "false"
 spec:
-  releaseName: approve-carrier-allchannel-peer0chaincode1-1
+  releaseName: approve-carrier-allchannel-peer0spydra31-1
   chart:
     git: https://github.com/alurujawahar/spdra-platform.git
     ref: develop
@@ -36,7 +36,7 @@ spec:
       address: orderer1.org1ambassador.getthespiderman.com:8443
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: chaincode
+      name: spydra3
       version: 1
       sequence: 1
       commitarguments: '\"\",\"\"'

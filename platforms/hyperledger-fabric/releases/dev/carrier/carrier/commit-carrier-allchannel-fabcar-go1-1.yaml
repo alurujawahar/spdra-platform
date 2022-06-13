@@ -40,7 +40,7 @@ spec:
       name: fabcar-go
       version: 1
       sequence: 1
-      commitarguments: '\"InitLedger\",\"\"'
+      commitarguments: '\InitLedger"\",\"\"'
       endorsementpolicies:  ''
     channel:
       name: allchannel

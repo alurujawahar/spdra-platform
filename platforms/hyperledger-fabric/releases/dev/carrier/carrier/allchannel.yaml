@@ -40,7 +40,7 @@ spec:
     orderer:
       address: orderer1.org1ambassador.getthespiderman.com:8443
     channeltx: |-
-      CtkDChgKFggCGgYI6qqblQYiCmFsbGNoYW5uZWwSvAMKuQMKCmFsbGNoYW5uZWwSRhI0CgtBcHBs
+      CtkDChgKFggCGgYIgeOblQYiCmFsbGNoYW5uZWwSvAMKuQMKCmFsbGNoYW5uZWwSRhI0CgtBcHBs
       aWNhdGlvbhIlEg4KCmNhcnJpZXJNU1ASABITCg9tYW51ZmFjdHVyZXJNU1ASABoOCgpDb25zb3J0
       aXVtEgAa4gIStgIKC0FwcGxpY2F0aW9uEqYCCAESDgoKY2Fycmllck1TUBIAEhMKD21hbnVmYWN0
       dXJlck1TUBIAGiQKDENhcGFiaWxpdGllcxIUEgoKCAoEVjJfMBIAGgZBZG1pbnMiIgoHV3JpdGVy

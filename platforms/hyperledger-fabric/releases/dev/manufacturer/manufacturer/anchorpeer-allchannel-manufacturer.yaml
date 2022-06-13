@@ -39,11 +39,11 @@ spec:
     orderer:
       address: orderer1.org1ambassador.getthespiderman.com:8443
     anchorstx: |-
-      CuoCChgKFggCGgYI66qblQYiCmFsbGNoYW5uZWwSzQIKygIKCmFsbGNoYW5uZWwSaBJmCgtBcHBs
-      aWNhdGlvbhJXCAESUwoPbWFudWZhY3R1cmVyTVNQEkAaBwoDTVNQEgAiCgoGQWRtaW5zEgAiDwoL
-      RW5kb3JzZW1lbnQSACILCgdSZWFkZXJzEgAiCwoHV3JpdGVycxIAGtEBEs4BCgtBcHBsaWNhdGlv
+      CuoCChgKFggCGgYIguOblQYiCmFsbGNoYW5uZWwSzQIKygIKCmFsbGNoYW5uZWwSaBJmCgtBcHBs
+      aWNhdGlvbhJXCAESUwoPbWFudWZhY3R1cmVyTVNQEkAaBwoDTVNQEgAiCwoHUmVhZGVycxIAIgsK
+      B1dyaXRlcnMSACIKCgZBZG1pbnMSACIPCgtFbmRvcnNlbWVudBIAGtEBEs4BCgtBcHBsaWNhdGlv
       bhK+AQgBErkBCg9tYW51ZmFjdHVyZXJNU1ASpQEIARpZCgtBbmNob3JQZWVycxJKEkAKPgo5cGVl
       cjAubWFudWZhY3R1cmVyLW5ldC5vcmcyYW1iYXNzYWRvci5nZXR0aGVzcGlkZXJtYW4uY29tEPtB
-      GgZBZG1pbnMaBwoDTVNQEgAiCwoHUmVhZGVycxIAIgsKB1dyaXRlcnMSACIKCgZBZG1pbnMSACIP
-      CgtFbmRvcnNlbWVudBIAKgZBZG1pbnM=
+      GgZBZG1pbnMaBwoDTVNQEgAiCgoGQWRtaW5zEgAiDwoLRW5kb3JzZW1lbnQSACILCgdSZWFkZXJz
+      EgAiCwoHV3JpdGVycxIAKgZBZG1pbnM=
 

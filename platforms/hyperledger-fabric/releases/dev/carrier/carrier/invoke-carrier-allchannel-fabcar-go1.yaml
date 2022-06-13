@@ -42,7 +42,7 @@ spec:
       builder: hyperledger/fabric-ccenv:2.2.2
       name: fabcar-go
       version: 1
-      invokearguments: '\"InitLedger\",\"\"'
+      invokearguments: '\InitLedger"\",\"\"'
       endorsementpolicies:  ''
     channel:
       name: allchannel

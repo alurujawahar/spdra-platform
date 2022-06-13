@@ -42,7 +42,7 @@ spec:
       name: chaincode
       version: 1
       lang: golang
-      maindirectory: spydra-chaincode
+      maindirectory: spydra
       repository:
         hostname: "github.com"
         git_username: "alurujawahar"

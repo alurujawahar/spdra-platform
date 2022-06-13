@@ -186,7 +186,6 @@ spec:
           cd /tmp && git clone https://{{ $.Values.chaincode.repository.git_username }}:$GIT_PASSWORD@{{ $.Values.chaincode.repository.url }} -b {{ $.Values.chaincode.repository.branch }} chaincode
           ls
           echo $GOPATH
-          tail -f /dev/null
           if [ ${CC_RUNTIME_LANGUAGE} = "golang" ]
           then
             ## Copying desired chaincode to a location relative to $GOPATH/src
@@ -202,6 +201,8 @@ spec:
             # CC_SRC_PATH="github.com/chaincode/${CHAINCODE_NAME}/${CHAINCODE_MAINDIR}"
 
             if ! [ -d "vendor" ];then
+              rm go.sum
+              go mod tidy
               GO111MODULE=on go mod vendor
               CC_SRC_PATH="${PWD}"
             fi

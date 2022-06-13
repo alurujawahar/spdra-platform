@@ -39,14 +39,14 @@ spec:
       address: orderer3.org1ambassador.getthespiderman.com:8443
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: fabcar-go
+      name: chaincode
       version: 1
       lang: golang
-      maindirectory: cmd
+      maindirectory: spydra-chaincode
       repository:
         hostname: "github.com"
         git_username: "alurujawahar"
         url: github.com/alurujawahar/spdra-platform.git
-        branch: main
-        path: examples/chaincode
+        branch: develop
+        path: examples
       endorsementpolicies:  ''

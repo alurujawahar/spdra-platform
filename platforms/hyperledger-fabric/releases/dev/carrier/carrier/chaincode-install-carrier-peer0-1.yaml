@@ -27,7 +27,7 @@ spec:
       tlsstatus: true
     vault:
       role: vault-role
-      address: http://100.21.17.156:9696
+      address: http://54.69.82.245:9696
       authpath: devcarrier-net-auth
       adminsecretprefix: secret/data/crypto/peerOrganizations/carrier-net/users/admin 
       orderersecretprefix: secret/data/crypto/peerOrganizations/carrier-net/orderer

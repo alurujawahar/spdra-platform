@@ -47,6 +47,6 @@ spec:
         hostname: "github.com"
         git_username: "alurujawahar"
         url: github.com/alurujawahar/spdra-platform.git
-        branch: develop
+        branch: main
         path: examples
       endorsementpolicies:  ''

@@ -1,0 +1,403 @@
+{
+  "clusters": [
+    {
+      "clusterId": "c1",
+      "region": "us-west-2",
+      "context": "EKS-pras@bevel-test-cluster.us-west-2.eksctl.io",
+      "configName": "configc1",
+      "configUrl": "s3://spydra-demo-east-region/spydra-east-cluster.kubeconfig"    
+    }
+  ],
+  "vaults": [
+    {
+      "vaultId": "v1",
+      "url": "http://100.21.17.156:9797",
+      "secretPath": "secret",
+      "awssm": {
+        "region": "us-west-2",
+        "secretName": "vault-secret-v1"   
+      }
+    }
+  ],
+  "network": {
+    "type": "fabric",
+    "version": "2.2.2",
+    "frontend": "disabled",
+    "env": {
+      "type": "drtn1-fabric",
+      "proxy": "haproxy",
+      "ambassadorPorts": "15010,15020",
+      "loadBalancerSourceRanges": null,
+      "retry_count": 1200,
+      "external_dns": "enabled"
+    },
+    "docker": {
+      "url": "index.docker.io/hyperledgerlabs",
+      "username": "docker_user",
+      "password": "docker_pass"
+    },
+    "orderers": [
+      {
+        "orderer": null,
+        "type": "orderer",
+        "name": "orderer1",
+        "org_name": "supplychain",
+        "uri": "orderer1.drtn1.getthespiderman.com:8443",
+        "certificate": "{bevelBuildDir}/orderer1.crt"
+      },
+      {
+        "orderer": null,
+        "type": "orderer",
+        "name": "orderer2",
+        "org_name": "supplychain",
+        "uri": "orderer2.drtn1.getthespiderman.com:8443",
+        "certificate": "{bevelBuildDir}/orderer2.crt"
+      },
+      {
+        "orderer": null,
+        "type": "orderer",
+        "name": "orderer3",
+        "org_name": "supplychain",
+        "uri": "orderer3.drtn1.getthespiderman.com:8443",
+        "certificate": "{bevelBuildDir}/orderer3.crt"
+      }
+    ],
+    "channels": [
+      {
+        "channel": null,
+        "channel_status": "new",
+        "consortium": "drtn1-Consortium",
+        "channel_name": "AllChannel",
+        "orderer": {
+          "name": "supplychain"
+        },
+        "participants": [
+          {
+            "organization": null,
+            "name": "manufacturer",
+            "type": "creator",
+            "org_status": "new",
+            "peers": [
+              {
+                "peer": null,
+                "name": "peer0",
+                "peerstatus": "new",
+                "gossipAddress": "peer0.manufacturer-net.drtn1.getthespiderman.com:8443",
+                "peerAddress": "peer0.manufacturer-net.drtn1.getthespiderman.com:8443"
+              }
+            ],
+            "ordererAddress": "orderer1.drtn1.getthespiderman.com:8443"
+          },
+          {
+            "organization": null,
+            "name": "carrier",
+            "type": "joiner",
+            "org_status": "new",
+            "peers": [
+              {
+                "peer": null,
+                "name": "peer0",
+                "peerstatus": "new",
+                "gossipAddress": "peer0.carrier-net.drtn1.getthespiderman.com:8443",
+                "peerAddress": "peer0.carrier-net.drtn1.getthespiderman.com:8443"
+              }
+            ],
+            "ordererAddress": "orderer1.drtn1.getthespiderman.com:8443"
+          }
+        ],
+        "endorsers": [
+          {
+            "organization": null,
+            "name": "manufacturer",
+            "peers": [
+              {
+                "peer": null,
+                "name": "peer0",
+                "corepeerAddress": "peer0.manufacturer-net.drtn1.getthespiderman.com:8443",
+                "certificate": "{bevelBuildDir}/peer0.manufacturer-net.drtn1.getthespiderman.com.ca.crt"
+              }
+            ]
+          },
+          {
+            "organization": null,
+            "name": "carrier",
+            "peers": [
+              {
+                "peer": null,
+                "name": "peer0",
+                "corepeerAddress": "peer0.carrier-net.drtn1.getthespiderman.com:8443",
+                "certificate": "{bevelBuildDir}/peer0.carrier-net.drtn1.getthespiderman.com.ca.crt"
+              }
+            ]
+          }
+        ],
+        "genesis": {
+          "name": "AllChannelGenesis"
+        }
+      }
+    ],
+    "organizations": [
+      {
+        "organization": null,
+        "name": "supplychain",
+        "country": "UK",
+        "state": "London",
+        "location": "London",
+        "subject": "O=supplychain,OU=supplychain,L=51.50/-0.13/London,C=GB",
+        "type": "orderer",
+        "external_url_suffix": "drtn1.getthespiderman.com",
+        "org_status": "new",
+        "fabric_console": "disabled",
+        "ca_data": {
+          "url": "ca.supplychain-net.drtn1.getthespiderman.com:8443",
+          "certificate": "file/server.crt"
+        },
+        "cloud_provider": "aws",
+        "aws": {
+          "access_key": "{AWS_ACCESS_KEY}",
+          "secret_key": "{AWS_SECRET_KEY}"
+        },
+        "k8s": {
+          "region": "{C1_REGION}",
+          "context": "{C1_CONTEXT}",
+          "config_file": "{bevelBuildDir}/{C1_CONFIGNAME}"
+        },
+        "vault": {
+          "url": "{V1_URL}",
+          "root_token": "{V1_ROOT_TOKEN}",
+          "secret_path": "{V1_SECRET_PATH}"
+        },
+        "gitops": {
+          "git_protocol": "https",
+          "git_url": "https://github.com/spydra-tech/bevel.git",
+          "branch": "drtn1",
+          "release_dir": "platforms/hyperledger-fabric/releases/dev",
+          "chart_source": "platforms/hyperledger-fabric/charts",
+          "git_repo": "github.com/spydra-tech/bevel.git",
+          "username": "{GIT_USERNAME}",
+          "password": "{GIT_PASSWORD}",
+          "email": "{GIT_EMAIL}",
+          "private_key": ""
+        },
+        "services": {
+          "ca": {
+            "name": "ca",
+            "subject": "/C=GB/ST=London/L=London/O=supplychain/CN=ca.supplychain-net.drtn1.getthespiderman.com",
+            "type": "ca",
+            "grpc": {
+              "port": 7054
+            }
+          },
+          "consensus": {
+            "name": "raft"
+          },
+          "orderers": [
+            {
+              "orderer": null,
+              "name": "orderer1",
+              "type": "orderer",
+              "consensus": "raft",
+              "grpc": {
+                "port": 7050
+              }
+            },
+            {
+              "orderer": null,
+              "name": "orderer2",
+              "type": "orderer",
+              "consensus": "raft",
+              "grpc": {
+                "port": 7050
+              }
+            },
+            {
+              "orderer": null,
+              "name": "orderer3",
+              "type": "orderer",
+              "consensus": "raft",
+              "grpc": {
+                "port": 7050
+              }
+            }
+          ]
+        }
+      },
+      {
+        "organization": null,
+        "name": "manufacturer",
+        "country": "UK",
+        "state": "London",
+        "location": "London",
+        "subject": "O=manufacturer,OU=manufacturer,L=51.50/-0.13/London,C=GB",
+        "type": "peer",
+        "external_url_suffix": "drtn1.getthespiderman.com",
+        "org_status": "new",
+        "fabric_console": "disabled",
+        "ca_data": {
+          "url": "ca.manufacturer-net.drtn1.getthespiderman.com:8443",
+          "certificate": "file/server.crt"
+        },
+        "cloud_provider": "aws",
+        "aws": {
+          "access_key": "{AWS_ACCESS_KEY}",
+          "secret_key": "{AWS_SECRET_KEY}"
+        },
+        "k8s": {
+          "region": "{C2_REGION}",
+          "context": "{C2_CONTEXT}",
+          "config_file": "{bevelBuildDir}/{C2_CONFIGNAME}"
+        },
+        "vault": {
+          "url": "{V2_URL}",
+          "root_token": "{V2_ROOT_TOKEN}",
+          "secret_path": "{V2_SECRET_PATH}"
+        },
+        "gitops": {
+          "git_protocol": "https",
+          "git_url": "https://github.com/spydra-tech/bevel.git",
+          "branch": "drtn1",
+          "release_dir": "platforms/hyperledger-fabric/releases/dev",
+          "chart_source": "platforms/hyperledger-fabric/charts",
+          "git_repo": "github.com/spydra-tech/bevel.git",
+          "username": "{GIT_USERNAME}",
+          "password": "{GIT_PASSWORD}",
+          "email": "{GIT_EMAIL}",
+          "private_key": ""
+        },
+        "services": {
+          "ca": {
+            "name": "ca",
+            "subject": "/C=GB/ST=London/L=London/O=manufacturer/CN=ca.manufacturer-net.drtn1.getthespiderman.com",
+            "type": "ca",
+            "grpc": {
+              "port": 7054
+            }
+          },
+          "peers": [
+            {
+              "peer": null,
+              "name": "peer0",
+              "type": "anchor",
+              "gossippeeraddress": "peer0.manufacturer-net.drtn1.getthespiderman.com:8443",
+              "peerAddress": "peer0.manufacturer-net.drtn1.getthespiderman.com:8443",
+              "certificate": "{bevelBuildDir}/manufacturer/peer0/ca.crt",
+              "cli": "disabled",
+              "grpc": {
+                "port": 7051
+              },
+              "events": {
+                "port": 7053
+              },
+              "couchdb": {
+                "port": 5984
+              },
+              "chaincode": {
+                "name": "supplychain",
+                "version": "1",
+                "maindirectory": "cmd",
+                "lang": "golang",
+                "repository": {
+                  "username": "{GIT_USERNAME}",
+                  "password": "{GIT_PASSWORD}",
+                  "url": "github.com/spydra-tech/bevel.git",
+                  "branch": "pras-test2",
+                  "path": "examples/supplychain-app/fabric/chaincode_rest_server/chaincode/"
+                },
+                "arguments": "\\\"init\\\",\\\"\\\"",
+                "endorsements": ""
+              }
+            }
+          ]
+        }
+      },
+      {
+        "organization": null,
+        "name": "carrier",
+        "country": "UK",
+        "state": "London",
+        "location": "London",
+        "subject": "O=carrier,OU=carrier,L=51.50/-0.13/London,C=GB",
+        "type": "peer",
+        "external_url_suffix": "drtn1.getthespiderman.com",
+        "org_status": "new",
+        "fabric_console": "disabled",
+        "ca_data": {
+          "url": "ca.carrier-net.drtn1.getthespiderman.com:8443",
+          "certificate": "file/server.crt"
+        },
+        "cloud_provider": "aws",
+        "aws": {
+          "access_key": "{AWS_ACCESS_KEY}",
+          "secret_key": "{AWS_SECRET_KEY}"
+        },
+        "k8s": {
+          "region": "{C3_REGION}",
+          "context": "{C3_CONTEXT}",
+          "config_file": "{bevelBuildDir}/{C3_CONFIGNAME}"
+        },
+        "vault": {
+          "url": "{V3_URL}",
+          "root_token": "{V3_ROOT_TOKEN}",
+          "secret_path": "{V3_SECRET_PATH}"
+        },
+        "gitops": {
+          "git_protocol": "https",
+          "git_url": "https://github.com/spydra-tech/bevel.git",
+          "branch": "pras-test2",
+          "release_dir": "platforms/hyperledger-fabric/releases/dev",
+          "chart_source": "platforms/hyperledger-fabric/charts",
+          "git_repo": "github.com/spydra-tech/bevel.git",
+          "username": "{GIT_USERNAME}",
+          "password": "{GIT_PASSWORD}",
+          "email": "{GIT_EMAIL}",
+          "private_key": ""
+        },
+        "services": {
+          "ca": {
+            "name": "ca",
+            "subject": "/C=GB/ST=London/L=London/O=carrier/CN=ca.carrier-net.drtn1.getthespiderman.com",
+            "type": "ca",
+            "grpc": {
+              "port": 7054
+            }
+          },
+          "peers": [
+            {
+              "peer": null,
+              "name": "peer0",
+              "type": "anchor",
+              "gossippeeraddress": "peer0.carrier-net.drtn1.getthespiderman.com:8443",
+              "peerAddress": "peer0.carrier-net.drtn1.getthespiderman.com:8443",
+              "certificate": "{bevelBuildDir}/carrier/peer0/ca.crt",
+              "cli": "disabled",
+              "grpc": {
+                "port": 7051
+              },
+              "events": {
+                "port": 7053
+              },
+              "couchdb": {
+                "port": 5984
+              },
+              "chaincode": {
+                "name": "supplychain",
+                "version": "1",
+                "maindirectory": "cmd",
+                "lang": "golang",
+                "repository": {
+                  "username": "{GIT_USERNAME}",
+                  "password": "{GIT_PASSWORD}",
+                  "url": "github.com/spydra-tech/bevel.git",
+                  "branch": "pras-test2",
+                  "path": "examples/supplychain-app/fabric/chaincode_rest_server/chaincode/"
+                },
+                "arguments": "\\\"init\\\",\\\"\\\"",
+                "endorsements": ""
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

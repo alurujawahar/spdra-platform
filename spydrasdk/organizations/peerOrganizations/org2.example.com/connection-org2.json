@@ -1,0 +1,49 @@
+{
+    "name": "test-network-org1",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "carrierMSP",
+            "peers": [
+                "peer0.carrier-net.org3ambassador.getthespiderman.com:8443"
+            ],
+            "certificateAuthorities": [
+                "ca.carrier-net.org3ambassador.getthespiderman.com:8443"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.carrier-net.org3ambassador.getthespiderman.com:8443": {
+            "url": "grpcs://peer0.carrier-net.org3ambassador.getthespiderman.com:8443",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVDCCAfqgAwIBAgIUdTBfeJvn2qb3Wrs2DDXtxZo28xQwCgYIKoZIzj0EAwIw\ngYcxCzAJBgNVBAYTAkNIMQ8wDQYDVQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmlj\naDEVMBMGA1UECgwMTWFudWZhY3R1cmVyMT8wPQYDVQQDDDZjYS5tYW51ZmFjdHVy\nZXItbmV0Lm9yZzJhbWJhc3NhZG9yLmdldHRoZXNwaWRlcm1hbi5jb20wHhcNMjIw\nNjEzMDc1NzUwWhcNMjUwNDAyMDc1NzUwWjCBhzELMAkGA1UEBhMCQ0gxDzANBgNV\nBAgMBlp1cmljaDEPMA0GA1UEBwwGWnVyaWNoMRUwEwYDVQQKDAxNYW51ZmFjdHVy\nZXIxPzA9BgNVBAMMNmNhLm1hbnVmYWN0dXJlci1uZXQub3JnMmFtYmFzc2Fkb3Iu\nZ2V0dGhlc3BpZGVybWFuLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDn4\nqC5t3Ow3yxHbRTcIs2iFWoDlGhhH9owu5HIY0VYSpwMZO+38OjJRNC1QTn54UFy9\nnqKRtvhpyDJ5O4l1lA6jQjBAMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQD\nAgGmMB0GA1UdDgQWBBQt9OWmMoIyzqRUiQRz4seFutHCuTAKBggqhkjOPQQDAgNI\nADBFAiEAi00UQEa8ASlJe1Mxp1vjJ2l7W0YTO7nfbCiAedgyREACIATrIDKbh2+6\n5Uljt4q3laCbdiCFmShYQ1Pg/0IIzc0U\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.carrier-net.org3ambassador.getthespiderman.com:8443",
+                "hostnameOverride": "peer0.carrier-net.org3ambassador.getthespiderman.com:8443"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.carrier-net.org3ambassador.getthespiderman.com": {
+            "url": "ca.carrier-net.org3ambassador.getthespiderman.com:8443",
+            "caName": "ca",
+            "tlsCACerts": {
+                "pem": ["-----BEGIN CERTIFICATE-----\nMIICPjCCAeSgAwIBAgIUfKUBa944tNyM9gCegvaklmjltzUwCgYIKoZIzj0EAwIw\nfTELMAkGA1UEBhMCR0IxDzANBgNVBAgMBkxvbmRvbjEPMA0GA1UEBwwGTG9uZG9u\nMRAwDgYDVQQKDAdDYXJyaWVyMTowOAYDVQQDDDFjYS5jYXJyaWVyLW5ldC5vcmcz\nYW1iYXNzYWRvci5nZXR0aGVzcGlkZXJtYW4uY29tMB4XDTIyMDYxMzA3NTk0OFoX\nDTI1MDQwMjA3NTk0OFowfTELMAkGA1UEBhMCR0IxDzANBgNVBAgMBkxvbmRvbjEP\nMA0GA1UEBwwGTG9uZG9uMRAwDgYDVQQKDAdDYXJyaWVyMTowOAYDVQQDDDFjYS5j\nYXJyaWVyLW5ldC5vcmczYW1iYXNzYWRvci5nZXR0aGVzcGlkZXJtYW4uY29tMFkw\nEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnjq190iBYGYOjiNwqWdNKNMHRaNB62cy\nkBVlS2LxBJzaVfrP6DxSFJlO6dKeOIUGJz/Re+InUg+FNnTPF39EVaNCMEAwDwYD\nVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0OBBYEFHCnW/jCaxw/\n0+8OGHGdCXLYQVN8MAoGCCqGSM49BAMCA0gAMEUCICAN49irw4Tdq9fl7uwKjLIE\n3e1tFj/fn35Wydutz0P2AiEA9FCV+477zaPz2asDv1D43IyVVONsbt+4tAHCigtM\nQjg=\n-----END CERTIFICATE-----\n"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
